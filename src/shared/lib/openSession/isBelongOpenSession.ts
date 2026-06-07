@@ -6,7 +6,12 @@ export type IsBelongOpenSessionParams = {
 
 export const isBelongOpenSession = (params: IsBelongOpenSessionParams) => {
   logMatching(params);
-  return params.isOpen && params.effectOpenId === params.openId;
+  return (
+    params.isOpen &&
+    params.openId !== null &&
+    params.effectOpenId !== null &&
+    params.effectOpenId === params.openId
+  );
 };
 
 const logMatching = (params: IsBelongOpenSessionParams) => {
@@ -14,7 +19,10 @@ const logMatching = (params: IsBelongOpenSessionParams) => {
   console.log("@__IsBelongOpenSession__@");
   console.log(
     "isBelong: ",
-    params.isOpen && params.effectOpenId === params.openId,
+    params.isOpen &&
+      params.openId !== null &&
+      params.effectOpenId !== null &&
+      params.effectOpenId === params.openId,
   );
   console.log("Params", params);
   console.log("@_______________________@");
