@@ -86,6 +86,11 @@ export const createOpenSession = <T = void>({
     target: $openId,
   });
 
+  sample({
+    clock: close,
+    target: $openId.reinit,
+  });
+
   /**
    * Wraps an effect or an async function into a protected effect
    * bound to the current open session.
