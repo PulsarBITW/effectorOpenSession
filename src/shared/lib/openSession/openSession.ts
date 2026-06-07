@@ -71,11 +71,11 @@ export type OpenSessionPayload<T> = {
  * const protectedFormSubmitted =
  *   openSessionModel.protectEvent(formSubmitted);
  */
-export const createOpenSession = <T = void>({
+export const createOpenSession = <T = void, D = void>({
   open,
   close,
   $isOpen,
-}: CreateOpenSessionParams<T>) => {
+}: CreateOpenSessionParams<T, D>) => {
   const generateId = createIdGenerator();
 
   const $openId = createStore<string | null>(null);

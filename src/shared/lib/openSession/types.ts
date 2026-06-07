@@ -3,9 +3,9 @@ export type DonePayload<Params = void, Done = void> = {
   result: Done;
 };
 
-export type FailPayload<Params = void, Done = void> = {
+export type FailPayload<Params = void, Fail = Error> = {
   params: Params;
-  error: Done;
+  error: Fail;
 };
 
 export type FinallyPayload<Params = void, Done = void, Fail = Error> =
